@@ -1,7 +1,7 @@
 # My configuration files
 
 ## Installation
-Run `generate_symlinks.sh`. This will create symlinks (in the `$HOME` directory 
+Run `generate_symlinks`. This will create symlinks (in the `$HOME` directory 
 by default) for each file in the dotfiles directory (except .DS_Store and 
 .gitignore).
 
