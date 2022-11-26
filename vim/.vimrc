@@ -10,6 +10,7 @@
 "           https://github.com/amix/vimrc
 "
 " Sections:
+"    -> Plugins
 "    -> General
 "    -> VIM user interface
 "    -> Colors and Fonts
@@ -26,13 +27,25 @@
 "
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+" => Plugins
+"""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
+call plug#begin()
+
+Plug 'vim-airline/vim-airline'
+Plug 'jacoborus/tender.vim'
+Plug 'preservim/nerdtree'
+Plug 'tpope/vim-commentary'
+
+call plug#end()
+
 
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " => General
 """""""""""""""""""""""""""""""""""""""""""""""""""""""""""""""
 " Sets how many lines of history VIM has to remember
 set history=500
-
+set number
 " Enable filetype plugins
 filetype plugin on
 filetype indent on
@@ -138,24 +151,27 @@ syntax enable
 set regexpengine=0
 
 " Enable 256 colors palette in Gnome Terminal
-if $COLORTERM == 'gnome-terminal'
-    set t_Co=256
+" if $COLORTERM == 'gnome-terminal'
+"     set t_Co=256
+" endif
+
+if (has("termguicolors"))
+ set termguicolors
 endif
 
-try
-    colorscheme desert
-catch
-endtry
+" Set the tender colorscheme
+colorscheme tender 
 
-set background=dark
+" Hihglight the line current number
+:se cursorline
 
 " Set extra options when running in GUI mode
-if has("gui_running")
-    set guioptions-=T
-    set guioptions-=e
-    set t_Co=256
-    set guitablabel=%M\ %t
-endif
+" if has("gui_running")
+"     set guioptions-=T
+"     set guioptions-=e
+"     set t_Co=256
+"     set guitablabel=%M\ %t
+" endif
 
 " Set utf8 as standard encoding and en_US as the standard language
 set encoding=utf8
