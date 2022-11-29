@@ -1,13 +1,7 @@
 # My configuration files
 
 ## Installation
-DEPRECATED
 
-Run `generate_symlinks`. This will create symlinks (in the `$HOME` directory 
-by default) for each file in the dotfiles directory (except .DS_Store and 
-.gitignore).
-
-NEW METHOD
 1. Change to `~` directory
 2. Clone the repository with `git clone`
 3. Change to `dotfiles` directory
