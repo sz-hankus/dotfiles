@@ -1,4 +1,4 @@
-" Set basic settings for usability
+" Basic settings for usability
 :set number
 :set autoindent
 :set tabstop=4
@@ -22,11 +22,12 @@ Plug 'vim-airline/vim-airline'
 Plug 'jacoborus/tender.vim'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
+Plug 'tpope/vim-surround'
 
 call plug#end()
 
 
-" COLOR THEMES
+"Set COLOR THEMES
 
 " If you have vim >=8.0 or Neovim >= 0.1.5
 if (has("termguicolors"))
