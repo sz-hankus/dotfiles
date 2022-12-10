@@ -2,9 +2,9 @@
 
 ## Installation
 
-1. Change to `~` directory
+1. Go to `~` directory
 2. Clone the repository with `git clone`
-3. Change to `dotfiles` directory
+3. Go to `dotfiles` directory
 4. Run `stow <dir>` for the configurations you want to inject
 
 ### How GNU Stow works
