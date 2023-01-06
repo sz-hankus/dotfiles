@@ -72,6 +72,18 @@ export LANG=en_US.UTF-8
 #   export EDITOR='mvim'
 # fi
 
+# Set the EDITOR
+# First try check if editor exists and try to set it in the following hierarchy
+# nvim => vim => vi
+if type nvim &>/dev/null; then
+	EDITOR=$(which nvim)
+elif type vim &>/dev/null; then
+	EDITOR=$(which vim)
+else
+	EDITOR=$(which vi)
+fi
+export EDITOR
+
 # Compilation flags
 # export ARCHFLAGS="-arch x86_64"
 
