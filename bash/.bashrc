@@ -32,11 +32,11 @@ export PATH
 # First try check if editor exists and try to set it in the following hierarchy
 # nvim => vim => vi
 if type nvim &>/dev/null; then
-	EDITOR=$(type -p nvim)
+	EDITOR=$(which nvim)
 elif type vim &>/dev/null; then
-	EDITOR=$(type -p vim)
+	EDITOR=$(which vim)
 else
-	EDITOR=$(type -p vi)
+	EDITOR=$(which vi)
 fi
 export EDITOR
 
