@@ -9,6 +9,7 @@ set softtabstop=4
 set mouse=a
 set scrolloff=4 " Keep 4 lines below and above the cursor
 set cursorline
+set nowrap
 
 
 " Cursor blinking
@@ -78,8 +79,8 @@ endif
 
 " Theme
 syntax enable
-colorscheme tender
+colorscheme nord
 
 " set airline theme
-let g:airline_theme = 'tender'
+let g:airline_theme = 'nord'
 
