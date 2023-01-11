@@ -1,4 +1,3 @@
-export PATH=/usr/local/bin:$PATH
 export PATH=/opt/homebrew/bin:$PATH
 
 # Add Visual Studio Code (code) to path
@@ -11,6 +10,9 @@ export ZSH="$HOME/.oh-my-zsh"
 ZSH_THEME="robbyrussell"
 
 zstyle ':omz:update' mode reminder  # remind to update when it's time
+
+# Turn off the annoying beeps
+unsetopt BEEP
 
 # Uncomment the following line if pasting URLs and other text is messed up.
 # DISABLE_MAGIC_FUNCTIONS="true"
@@ -53,10 +55,12 @@ zstyle ':omz:update' mode reminder  # remind to update when it's time
 plugins=(
 	git
 	zsh-autosuggestions
+	zsh-syntax-highlighting
 	macos
 )
 
 source $ZSH/oh-my-zsh.sh
+
 
 # User configuration
 
