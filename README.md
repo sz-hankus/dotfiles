@@ -22,9 +22,10 @@ As a result the `~` directory will be populated with symlinks to:
 
 ## What's in the files
  - configuration for zsh and oh my zsh
- - bash configuration
+ - bash configuration, aliases etc.
  - git configuration
  - vim configuration
  - neovim configuration
+ - ranger configuration
  - tmux configuration
  - Homebrew file
