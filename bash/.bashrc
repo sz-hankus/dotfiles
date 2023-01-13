@@ -28,6 +28,16 @@ PS1="[\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;36m\]\W\[\033[00m\]]\$ "
 PATH="$PATH:$HOME/Scripts"
 export PATH
 
+# less (pager) colors
+export LESS=-R
+export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
+export LESS_TERMCAP_md=$'\E[1;32m'     # begin blink
+export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
+export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+export LESS_TERMCAP_us=$'\E[1;36m'     # begin underline
+export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
+
 # Set the EDITOR
 # First try check if editor exists and try to set it in the following hierarchy
 # nvim => vim => vi

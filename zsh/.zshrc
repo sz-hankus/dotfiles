@@ -40,7 +40,7 @@ unsetopt BEEP
 # "mm/dd/yyyy"|"dd.mm.yyyy"|"yyyy-mm-dd"
 # or set a custom format using the strftime function format specifications,
 # see 'man strftime' for details.
-# HIST_STAMPS="mm/dd/yyyy"
+HIST_STAMPS="mm/dd/yyyy"
 
 # Would you like to use another custom folder than $ZSH/custom?
 # ZSH_CUSTOM=/path/to/new-custom-folder
@@ -75,6 +75,16 @@ export LANG=en_US.UTF-8
 # else
 #   export EDITOR='mvim'
 # fi
+
+# less (pager) colors
+export LESS=-R
+export LESS_TERMCAP_mb=$'\E[1;31m'     # begin bold
+export LESS_TERMCAP_md=$'\E[1;32m'     # begin blink
+export LESS_TERMCAP_me=$'\E[0m'        # reset bold/blink
+export LESS_TERMCAP_so=$'\E[01;44;33m' # begin reverse video
+export LESS_TERMCAP_se=$'\E[0m'        # reset reverse video
+export LESS_TERMCAP_us=$'\E[1;36m'     # begin underline
+export LESS_TERMCAP_ue=$'\E[0m'        # reset underline
 
 # Set the EDITOR
 # First try check if editor exists and try to set it in the following hierarchy
