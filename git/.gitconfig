@@ -2,7 +2,6 @@
 	name = Szymon Hankus
 	email = dephan@protonmail.com
 [core]
-	editor = /usr/bin/vim
 	excludesFile = ~/.global_gitignore
 [http]
 	postBuffer = 157286400
