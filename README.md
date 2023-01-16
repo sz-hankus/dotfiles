@@ -25,7 +25,7 @@ As a result the `~` directory will be populated with symlinks to:
  - bash configuration, aliases etc.
  - git configuration
  - vim configuration
- - neovim configuration
- - ranger configuration
- - tmux configuration
- - Homebrew file
+ - [neovim](https://github.com/neovim/neovim) configuration
+ - [ranger](https://github.com/ranger/ranger) configuration
+ - [tmux](https://github.com/tmux/tmux) configuration
+ - [Homebrew](https://github.com/Homebrew/brew) file
