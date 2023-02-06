@@ -15,16 +15,17 @@ zstyle ':vcs_info:*' formats $'%F{red}(\ue725 %b)%f'
 precmd () {
 	vcs_info
 	[[ ! -z $vcs_info_msg_0_ ]] && vcs_info_msg_0_+=' '
-	# prompt on the right (pwd)
-	[[ "$(tput cols)" -ge 90 ]] && RPROMPT=$'%F{8}%~%f' # c+8 is bright c (e.g. 0=black => 8=bright black) 
-	# add a directory icon if shell was spawned by ranger
-	[[ ! -z "$RANGER_LEVEL" ]] && RPROMPT+=$' %F{blue}\ue5ff%f'
 }
 
 # Main prompt
 setopt PROMPT_SUBST
 PROMPT=$'%(?.%F{green}.%F{red})\uf111%f %F{cyan}%1~%f '
 PROMPT+='$vcs_info_msg_0_' # add git info
+
+# prompt on the right (pwd)
+[[ "$(tput cols)" -ge 90 ]] && RPROMPT=$'%F{8}%~%f' # c+8 is bright c (e.g. 0=black => 8=bright black) 
+# add a directory icon if shell was spawned by ranger
+[[ ! -z "$RANGER_LEVEL" ]] && RPROMPT+=$' %F{blue}\ue5ff%f'
 
 # Bindings
 bindkey -e
