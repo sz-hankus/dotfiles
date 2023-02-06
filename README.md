@@ -21,11 +21,11 @@ As a result the `~` directory will be populated with symlinks to:
  - `~/dotfiles/bash/.bash_profile`
 
 ## What's in the files
- - configuration for zsh and oh my zsh
- - bash configuration, aliases etc.
- - git configuration
- - vim configuration
- - [neovim](https://github.com/neovim/neovim) configuration
- - [ranger](https://github.com/ranger/ranger) configuration
- - [tmux](https://github.com/tmux/tmux) configuration
- - [Homebrew](https://github.com/Homebrew/brew) file
+- zsh configuration
+- bash configuration, aliases etc.
+- git configuration
+- vim configuration
+- [neovim](https://github.com/neovim/neovim) configuration
+- [ranger](https://github.com/ranger/ranger) configuration
+- [tmux](https://github.com/tmux/tmux) configuration
+- [Homebrew](https://github.com/Homebrew/brew) file
