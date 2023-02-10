@@ -60,3 +60,25 @@ class my_edit(Command):
         # This is a generic tab-completion function that iterates through the
         # content of the current directory.
         return self._tab_directory_content()
+
+
+class change_basename(Command):
+    """:change_basename
+
+    Opens the console with filename of the currently selected file trimmed to
+    the last period character. 
+    """
+
+    def execute(self):
+        if self.arg(1):
+            self.fm.notify('This command does not take any arguments. See help for more info.', bad=True)
+            return
+
+        target_filename = self.fm.thisfile
+        ext = target_filename.extension
+
+        self.fm.open_console(f'rename .{ext}', position=7)
+        return
+
+    def tab(self, tabnum):
+        return self._tab_directory_content()
