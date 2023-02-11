@@ -65,8 +65,8 @@ class my_edit(Command):
 class change_basename(Command):
     """:change_basename
 
-    Opens the console with filename of the currently selected file trimmed to
-    the last period character. 
+    Opens the console with the rename command and the filename of the currently
+    selected file trimmed to the last period character. 
     """
 
     def execute(self):
@@ -77,7 +77,8 @@ class change_basename(Command):
         target_filename = self.fm.thisfile
         ext = target_filename.extension
 
-        self.fm.open_console(f'rename .{ext}', position=7)
+        trimmed = f'.{ext}' if ext != None else ''
+        self.fm.open_console(f'rename {trimmed}', position=7)
         return
 
     def tab(self, tabnum):
