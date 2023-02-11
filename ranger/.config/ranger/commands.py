@@ -62,8 +62,8 @@ class my_edit(Command):
         return self._tab_directory_content()
 
 
-class change_basename(Command):
-    """:change_basename
+class change_name(Command):
+    """:change_name
 
     Opens the console with the rename command and the filename of the currently
     selected file trimmed to the last period character. 
