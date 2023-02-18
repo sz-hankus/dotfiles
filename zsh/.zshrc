@@ -8,6 +8,10 @@ if [[ "$platform" == "Darwin" ]]; then
 fi
 export PATH="$HOME/.scripts:$PATH"
 
+# Enable autocompletion
+autoload -Uz compinit
+compinit
+
 # PROMPT (and vcs) setup
 autoload -Uz vcs_info
 zstyle ':vcs_info:*' enable git
@@ -55,8 +59,8 @@ HIST_STAMPS="yyyy-mm-dd"
 # You may need to manually set your language environment
 export LANG=en_US.UTF-8
 
-# less (pager) colors
-export LESS=-R
+# LESS (pager) customization
+export LESS='--ignore-case --status-column --LONG-PROMPT --RAW-CONTROL-CHARS --HILITE-UNREAD --tabs=4 --no-init --window=-4'
 export LESS_TERMCAP_mb=$'\e[1;31m'     # begin bold
 export LESS_TERMCAP_md=$'\e[1;32m'     # begin blink
 export LESS_TERMCAP_me=$'\e[0m'        # reset bold/blink
