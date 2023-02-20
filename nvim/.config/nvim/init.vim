@@ -19,7 +19,7 @@ set guicursor+=n-v-c:blinkwait10
 
 
 " KEYBINDINGS
-let mapleader = ","
+let mapleader = " "
 map <silent> <leader><cr> :noh<cr>
 nmap <leader>ne :silent! NERDTree<cr>
 nmap <leader>w :w!<cr>
