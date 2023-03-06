@@ -40,6 +40,12 @@ PROMPT+='$vcs_info_msg_0_' # add git info
 bindkey -e
 bindkey '^R' history-incremental-search-backward
 
+# Enable editing of the currently typed command in the $EDITOR
+autoload edit-command-line
+zle -N edit-command-line
+bindkey '^XE' edit-command-line
+bindkey '^X^E' edit-command-line
+
 # Turn off the annoying beeps
 unsetopt BEEP
 
