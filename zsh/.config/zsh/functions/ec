@@ -1,0 +1,2 @@
+local choice="$(find ~/dotfiles -not -path "*.git/*" -not -type d -print0 | fzf --read0)"
+"$EDITOR" "$choice"

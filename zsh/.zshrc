@@ -14,6 +14,11 @@ export XDG_DATA_HOME="$HOME/.local/share"
 export XDG_CACHE_HOME="$HOME/.local/cache"
 export XDG_STATE_HOME="$HOME/.local/state"
 
+# Source aliases and functions
+source "$XDG_CONFIG_HOME"/zsh/aliases.zsh
+fpath=( "$XDG_CONFIG_HOME/zsh/functions" $fpath )
+autoload -Uz "$XDG_CONFIG_HOME/zsh/functions"/*
+
 # Enable autocompletion
 autoload -Uz compinit
 compinit
