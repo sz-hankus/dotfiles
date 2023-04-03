@@ -6,10 +6,15 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]
-then
+if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
 fi
+
+# Include ~/Scripts in the path
+if ! [[ "$PATH" =~ "$HOME/Scripts" ]]; then
+	PATH="$PATH:$HOME/Scripts"
+fi
+
 export PATH
 
 # User specific aliases and functions
@@ -23,10 +28,6 @@ fi
 
 # PROMPT configuration
 PS1="[\[\033[01;32m\]\u@\h\[\033[00m\] \[\033[01;36m\]\W\[\033[00m\]]\$ "
-
-# Include ~/Scripts in the path
-PATH="$PATH:$HOME/Scripts"
-export PATH
 
 # less (pager) colors
 export LESS=-R
