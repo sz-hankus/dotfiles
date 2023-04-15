@@ -3,10 +3,18 @@
 platform="$(uname)"
 if [[ "$platform" == "Darwin" ]]; then
 	# Add homebrew installations and vscode binaries
-	export PATH="/opt/homebrew/bin:$PATH"
-	export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+	if ! [[ "$PATH" =~ "/opt/homebrew/bin" ]]; then
+		export PATH="/opt/homebrew/bin:$PATH"
+	fi
+	if ! [[ "$PATH" =~ "/Applications/Visual Studio Code.app/Contents/Resources/app/bin" ]]; then
+		export PATH="/Applications/Visual Studio Code.app/Contents/Resources/app/bin:$PATH"
+	fi
 fi
-export PATH="$HOME/.scripts:$PATH"
+
+# Add scripts to the PATH
+if ! [[ "$PATH" =~ "$HOME/.scripts" ]]; then
+	export PATH="$HOME/.scripts:$PATH"
+fi
 
 # XDG environment variables
 export XDG_CONFIG_HOME="$HOME/.config"
