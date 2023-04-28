@@ -46,7 +46,7 @@ endif
 " PLUGINS
 call plug#begin()
 
-Plug 'vim-airline/vim-airline'
+" Plug 'vim-airline/vim-airline'
 Plug 'preservim/nerdtree'
 Plug 'tpope/vim-commentary'
 Plug 'tpope/vim-surround'
@@ -54,18 +54,21 @@ Plug 'ryanoasis/vim-devicons'
 Plug 'tiagofumo/vim-nerdtree-syntax-highlight'
 
 " Color schemes
+Plug 'phha/zenburn.nvim'
 Plug 'arcticicestudio/nord-vim'
 Plug 'jacoborus/tender.vim'
 Plug 'tomasiser/vim-code-dark'
 Plug 'sts10/vim-pink-moon'
 Plug 'morhetz/gruvbox'
+Plug 'lifepillar/vim-solarized8'
 " Telescope
 Plug 'nvim-lua/plenary.nvim'
 Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
+
 " Tab bar
 " Plug 'romgrk/barbar.nvim'
 " Coc (Conquer Of Completion)
-Plug 'neoclide/coc.nvim', {'branch': 'release'}
+" Plug 'neoclide/coc.nvim', {'branch': 'release'}
 
 call plug#end()
 
@@ -79,8 +82,10 @@ endif
 
 " Theme
 syntax enable
-colorscheme nord
+set background=dark
+colorscheme zenburn
+" colorscheme solarized8
 
 " set airline theme
-let g:airline_theme = 'nord'
+" let g:airline_theme = 'nord'
 
