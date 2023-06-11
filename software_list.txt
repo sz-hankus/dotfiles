@@ -1,0 +1,7 @@
+stow
+git
+neovim
+vim
+zsh
+fish
+

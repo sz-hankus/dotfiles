@@ -12,8 +12,8 @@ if [[ "$platform" == "Darwin" ]]; then
 fi
 
 # Add scripts to the PATH
-if ! [[ "$PATH" =~ "$HOME/.scripts" ]]; then
-	export PATH="$HOME/.scripts:$PATH"
+if ! [[ "$PATH" =~ "$HOME/Scripts" ]]; then
+	export PATH="$HOME/Scripts:$PATH"
 fi
 
 # XDG environment variables
