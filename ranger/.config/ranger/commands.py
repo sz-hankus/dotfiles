@@ -83,3 +83,53 @@ class change_name(Command):
 
     def tab(self, tabnum):
         return self._tab_directory_content()
+
+
+class zip(Command):
+    """:zip [target]
+
+    Zips all currently selected items into `target.zip` using the `zip` program.
+    If no target filename is provided, it uses the first selected item as the name.
+    """
+
+    def execute(self):
+        selection = self.fm.thistab.get_selection()
+        paths = [ os.path.relpath(fs_obj.realpath) for fs_obj in selection ]
+        if not self.arg(1):
+            name = f'{selection[0].basename}.zip'
+        else:
+            name = f'{self.arg(1)}.zip'
+
+        self.fm.run(['zip', '-r', name] + paths, flags='p')  # pipes output to pager
+        return
+
+    def tab(self, tabnum):
+        return self._tab_directory_content()
+
+
+class ext_select(Command):
+    """:ext_select <extension>
+
+    Selects all files with the provided extension in the current working directory.
+    """
+
+    def execute(self):
+        if not self.arg(1):
+            self.fm.notify(f'Extension not provided.', bad=True)
+        ext = self.arg(1)
+        tab = self.fm.thistab
+        files = tab.thisdir.files
+        for file in files:
+            if file.extension == ext:
+                tab.thisdir.mark_item(file, True)
+
+        self.fm.ui.browser.main_column.request_redraw()
+        return
+
+    def tab_directory_extensions(self):
+        extensions = [ file.extension for file in self.fm.thistab.thisdir.files if file.extension ]
+        return (self.start(1) + ext for ext in extensions)
+
+    def tab(self, tabnum):
+        return self.tab_directory_extensions()
+
