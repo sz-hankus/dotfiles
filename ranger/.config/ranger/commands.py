@@ -128,6 +128,9 @@ class ext_select(Command):
 
     def tab_directory_extensions(self):
         extensions = [ file.extension for file in self.fm.thistab.thisdir.files if file.extension ]
+        extensions = list(set(extensions))
+        if self.arg(1):
+            extensions = [ ext for ext in extensions if ext.startswith(self.arg(1)) ]
         return (self.start(1) + ext for ext in extensions)
 
     def tab(self, tabnum):
