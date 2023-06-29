@@ -28,20 +28,6 @@ opt.wrap = false
 opt.guicursor:append('n-v-c:blinkon1')
 opt.guicursor:append('n-v-c:blinkwait10')
 
--- Install packer if not installed
-packer_location = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
-repo = 'https://github.com/wbthomason/packer.nvim'
-if fn.empty(fn.glob(packer_location)) > 0 then
-	print('Cloning the nvim.packer repository...')
-	vim.api.nvim_command('! git clone '..repo..' '..packer_location)
-	vim.api.nvim_command('packadd packer.nvim')
-end
-
-
-
--- Colors
-vim.cmd('colorscheme gruvbox-material')
-
 -- Mappings
 local keymap = vim.keymap
 vim.g.mapleader = ' '
@@ -62,9 +48,23 @@ else
 	keymap.set('n', '<Leader>nt', ':NvimTreeToggle<cr>')
 end
 
+-- Install packer if not installed
+packer_location = fn.stdpath('data')..'/site/pack/packer/start/packer.nvim'
+repo = 'https://github.com/wbthomason/packer.nvim'
+if fn.empty(fn.glob(packer_location)) > 0 then
+	print('Cloning the nvim.packer repository...')
+	vim.api.nvim_command('! git clone '..repo..' '..packer_location)
+	vim.api.nvim_command('packadd packer.nvim')
+	print('Done')
+	-- On the first launch sync packer and return
+	require('plugins')
+	return require('packer').sync()
+end
 
 -- Plugins
-require('plugins')
+
+-- Colors
+vim.cmd('colorscheme gruvbox-material')
 
 -- Plugin configs
 -- NVIM-TREE
