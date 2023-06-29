@@ -1,6 +1,7 @@
 " Basic settings for usability
 set nocompatible " remove compatibility with vi
 set number
+set relativenumber
 set autoindent
 set tabstop=4
 set shiftwidth=4
@@ -11,6 +12,16 @@ set scrolloff=4 " Keep 4 lines below and above the cursor
 set cursorline
 set nowrap
 set textwidth=80
+set ignorecase 
+set smartcase
+
+" Automatically install vim-plug (if not installed)
+let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
+if empty(glob(data_dir . '/autoload/plug.vim'))
+  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
+  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
+endif
+
 
 " PLUGINS
 call plug#begin()
@@ -25,10 +36,9 @@ call plug#begin()
 	Plug 'phha/zenburn.nvim'
 	Plug 'arcticicestudio/nord-vim'
 	Plug 'jacoborus/tender.vim'
-	Plug 'tomasiser/vim-code-dark'
-	Plug 'sts10/vim-pink-moon'
 	Plug 'morhetz/gruvbox'
 	Plug 'lifepillar/vim-solarized8'
+	Plug 'sainnhe/gruvbox-material'
 	" Telescope
 	Plug 'nvim-lua/plenary.nvim'
 	Plug 'nvim-telescope/telescope.nvim', { 'tag': '0.1.0' }
@@ -46,7 +56,10 @@ set guicursor+=n-v-c:blinkwait10
 
 if exists("g:vscode")
 	let mapleader = " "
-	nmap <leader>w <Cmd>call VSCodeCall('workbench.action.files.save')<cr>
+	nnoremap <leader>w <cmd>call VSCodeCall('workbench.action.files.save')<cr>
+	nnoremap <silent> <leader><cr> :noh<cr>
+	nnoremap <leader>ff  <cmd>call VSCodeNotifyVisual('workbench.action.quickOpen', 1)<CR>
+	nnoremap <leader>fg <cmd>call VSCodeNotify('workbench.action.findInFiles', { 'query': expand('<cword>')})<CR>
 else
 	" KEYBINDINGS
 	let mapleader = " "
@@ -65,14 +78,6 @@ else
 endif
 
 
-" Automatically install vim-plug (if not installed)
-let data_dir = has('nvim') ? stdpath('data') . '/site' : '~/.vim'
-if empty(glob(data_dir . '/autoload/plug.vim'))
-  silent execute '!curl -fLo '.data_dir.'/autoload/plug.vim --create-dirs  https://raw.githubusercontent.com/junegunn/vim-plug/master/plug.vim'
-  autocmd VimEnter * PlugInstall --sync | source $MYVIMRC
-endif
-
-
 "Set COLOR THEMES
 
 " If you have vim >=8.0 or Neovim >= 0.1.5
@@ -83,8 +88,7 @@ endif
 " Theme
 syntax enable
 set background=dark
-colorscheme zenburn
-" colorscheme solarized8
+colorscheme gruvbox-material
 
 " set airline theme
 " let g:airline_theme = 'nord'
