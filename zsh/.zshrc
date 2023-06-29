@@ -51,7 +51,8 @@ PROMPT+='$vcs_info_msg_0_' # add git info
 
 # Bindings
 bindkey -e
-bindkey '^R' history-incremental-search-backward
+# source fzf tool for reverse search
+source $(brew --prefix fzf)/shell/key-bindings.zsh
 
 # Enable editing of the currently typed command in the $EDITOR
 autoload edit-command-line
