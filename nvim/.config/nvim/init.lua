@@ -35,7 +35,7 @@ vim.g.mapleader = ' '
 if vim.g.vscode then
 	keymap.set('n', '<leader>w', ':call VSCodeCall(\'workbench.action.files.save\')<cr>')
 	keymap.set('n', '<leader><cr>', ':noh<cr>')
-	keymap.set('n', '<leader>ff', ':call VSCodeNotifyVisual(\'workbench.action.quickOpen\', 1)<CR>')
+	keymap.set('n', '<leader>ff', ':call VSCodeNotify(\'workbench.action.quickOpen\', 1)<CR>')
 	keymap.set('n', '<leader>fg', ':call VSCodeNotify(\'workbench.action.findInFiles\', { \'query\': expand(\'<cword>\')})<CR>')
 	return
 else
