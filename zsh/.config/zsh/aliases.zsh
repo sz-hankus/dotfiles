@@ -18,4 +18,3 @@ alias cls='clear'
 
 # Other programs 
 alias rng='ranger'
-alias tmatt='tmux attach'
