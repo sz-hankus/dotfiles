@@ -11,4 +11,8 @@
 	process = git-lfs filter-process
 	required = true
 [alias]
+	a = add
+	comm = commit
 	lg = log --graph --all --abbrev-commit --decorate
+[push]
+	default = current
