@@ -21,7 +21,7 @@ set scrolloff 10
 set cursorpreviewfmt "\033[7;2m"
 
 # enter a shell inside the current directory
-map S !$SHELL
+map S $$SHELL
 
 # use enter for shell commands
 map <enter> shell
