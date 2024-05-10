@@ -13,6 +13,11 @@
 [alias]
 	a = add
 	comm = commit
+	# log + graph
 	lg = log --graph --all --abbrev-commit --decorate
+	# interactive checkout
+	icheckout = "!{ for branch in .git/refs/heads/*; do echo $(basename $branch); done; for branch in .git/refs/remotes/*/*; do echo $(dirname $branch | xargs basename)/$(basename $branch); done } | fzf --height=~10 | xargs git checkout"
+	# interactive add
+	iadd = "!{ git ls-files --others --exclude-standard; git diff --name-status; } | awk '{ if (NF == 1){filename=$1} else {filename=$2}; if ($1 == \"M\") { printf \"\\033[33m\"$1 } else if ($1 == \"D\") { printf \"\\033[91m\"$1 } else if (NF == 1) { printf \"\\033[92m\"\"A\" } ; print \"\\t\" \"\\033[m\" filename; }' | fzf --multi --ansi --height=~10 | cut -f 2 | xargs git add"
 [push]
 	default = current
