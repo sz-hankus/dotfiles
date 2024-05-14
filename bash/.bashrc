@@ -6,13 +6,13 @@ if [ -f /etc/bashrc ]; then
 fi
 
 # User specific environment
-if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
-    PATH="$HOME/.local/bin:$HOME/bin:$PATH"
-fi
+# if ! [[ "$PATH" =~ "$HOME/.local/bin:$HOME/bin:" ]]; then
+#     PATH="$HOME/.local/bin:$HOME/bin:$PATH"
+# fi
 
 # Include ~/Scripts in the path
 if ! [[ "$PATH" =~ "$HOME/Scripts" ]]; then
-	PATH="$PATH:$HOME/Scripts"
+	PATH="$HOME/Scripts:$PATH"
 fi
 
 export PATH
