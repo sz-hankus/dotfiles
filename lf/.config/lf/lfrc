@@ -48,6 +48,10 @@ cmd open &{{
     esac
 }}
 
+cmd size !{{
+	du -hd0 $fx;
+}}
+
 # mkdir command. See wiki if you want it to select created dir
 map a :push %mkdir<space>
 
