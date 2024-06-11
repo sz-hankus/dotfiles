@@ -62,6 +62,7 @@ if fn.empty(fn.glob(packer_location)) > 0 then
 end
 
 -- Plugins
+require('plugins')
 
 -- Colors
 vim.cmd('colorscheme gruvbox-material')
